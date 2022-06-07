@@ -15,17 +15,17 @@ wait = WebDriverWait(driver, 10)
 i_input = wait.until(EC.presence_of_all_elements_located((By.TAG_NAME, 'input')))
 
 i_name = i_input[1]
-i_name.send_keys('dixtal')
+i_name.send_keys('selenia')
 i_name.send_keys(Keys.RETURN)
+
+time.sleep(3) #descobrir o que rolou
 
 try:
     table = WebDriverWait(driver, 10).until(
         EC.presence_of_element_located((By.TAG_NAME, 'table'))
     )
 
-    rows = table.find_elements(By.TAG_NAME, 'td')
-    print(rows)
+    print(table.text)
 
 finally:
-    time.sleep(5)
     driver.quit()
